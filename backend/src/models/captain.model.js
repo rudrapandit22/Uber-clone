@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const captainSchema = new mongoose.Schema({
     fullname:{
-        fristname:{
+        firstname:{
             type:String,
             required:true,
             minlength:[3,'Firstname must be at least 3 characters long'],
@@ -21,8 +21,8 @@ const captainSchema = new mongoose.Schema({
         lowercase:true
    },
    password:{
+        type: String,
         required:true,
-        unique:true,
         select:false
    },
    status:{
@@ -85,4 +85,4 @@ captainSchema.statics.hashpassword = async function(password){
 
 const captainModel = mongoose.model('captain',captainSchema)
 
-module.exports = captainModel;l
+module.exports = captainModel;
